@@ -6,7 +6,7 @@ export default function Todolist() {
   const [todosList, setTodosList] = useState([]);
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div className="todos-container" style={{ textAlign: 'center' }}>
       <div className="header">
         <h1>Todolist-react-hook</h1>
       </div>
@@ -22,7 +22,11 @@ export default function Todolist() {
         <button
           onClick={(e) => {
             e.preventDefault();
-            setTodosList([...todosList, { index: todosList.length, ...todos }]);
+            setTodosList(
+              todos.todo != ''
+                ? [...todosList, { index: todosList.length, ...todos }]
+                : [...todosList]
+            );
             setTodos(intialState);
           }}
         >
